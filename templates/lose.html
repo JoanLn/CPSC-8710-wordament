@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOU LOSE!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>You lost!</h1>
+        <p>You couldn't guess the word: {{ word }}</p>
+
+        <form action="/restart" method="post">
+            <button type="submit" name="key_id" value = "restart" class="subfont">restart</button>
+        </form>
+    </div>
+</body>
+</html>

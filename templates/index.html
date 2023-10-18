@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordament</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wordament Game</h1>
+        <h2 class="subfont">{{ remaining_words }}</h2>
+
+        <div class="wrapper">
+            
+            {% for word in grid %}
+                {% for w in word %}
+                        <form action="/enter" method="post">
+                            <button type="submit" name="word_id" value = "{{w}}" class="subfont">{{w}}</button>
+                        </form>
+                {% endfor %}
+            {% endfor %}
+            
+        </div>
+
+        <h1> </h1>
+
+        {% with messages = get_flashed_messages(category_filter=["word"]) %}
+            {% if messages %}
+                <ul class="flash">
+                    {% for message in messages %}
+                        <h1>{{ message }}</h1>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% with messages = get_flashed_messages(category_filter=["message"]) %}
+            {% if messages %}
+                <ul class="flash">
+                    {% for message in messages %}
+                        <h2>{{ message }}</h2>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <h1> </h1>
+
+        <form action="/guess" method="post">
+            <button type="submit" class="subfont">Guess</button>
+        </form>
+    </div>
+</body>
+
+</html>
