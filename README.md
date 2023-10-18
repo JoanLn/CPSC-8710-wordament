@@ -9,3 +9,6 @@ The program will running on http://127.0.0.1:5000
 ### package
 1. flask
 2. nltk
+
+## Credit
+python version (Game_Final.py): 
