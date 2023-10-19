@@ -3,16 +3,16 @@ body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: #1ba9fc;
-    color: #e6e6e6;
+    color: #ffffff;
 }
 
 .container {
-    max-width: 1000px; /* Increased size for better central visibility */
+    max-width: 1000px;
     margin: 50px auto;
-    padding: 25px; /* Increased padding */
+    padding: 25px;
     background-color: rgba(42, 2, 80, 0.5);
     border-radius: 15px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5); /* Increased shadow slightly */
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
 }
 
 .wrapper {
@@ -32,14 +32,14 @@ body {
 h1 {
     font-family: Courier, monospace;
     text-align: center;
-    font-size: 5em; /* Increased size by 25% */
+    font-size: 5em;
     color: #ffffff;
 }
 
 h2, h3 {
     font-family: Courier, monospace;
     text-align: center;
-    font-size: 1.9em; /* Increased size by 25% */
+    font-size: 1.9em;
     color: #ffffff;
 }
 
@@ -48,11 +48,11 @@ button {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 12.5px; /* Increased padding */
-    margin: 12.5px 0; /* Increased margin */
+    padding: 12.5px; 
+    margin: 12.5px 0;
     background-color: #989affcb;
     border: #190074;
-    font-size: 1.25em; /* Increased font size by 25% */
+    font-size: 1.25em;
     color:rgb(255, 255, 255);
     cursor: pointer;
 }

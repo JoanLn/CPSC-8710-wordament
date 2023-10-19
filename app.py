@@ -63,6 +63,14 @@ class WordamentGame:
                 dfs(i, j, grid[i][j], {(i, j)})
         
         return words_found
+        
+    def quit_game():
+        self.quit = True
+
+    
+    def end_game():
+        if not self.quit:  
+            self.quit_flag = True 
 
 #
 # part2 - wordament 
@@ -97,10 +105,6 @@ class PasswordGame:
         quit_flag = True
 
 
-global game
-game = WordamentGame()
-game2 = PasswordGame(['init'])
-
 @app.route("/enter", methods=['POST'])
 def button_click():
     word_id = request.form["word_id"]
@@ -125,10 +129,6 @@ def submit_word():
                 flash("Congratulations! You won!", "message")
                 game2 = PasswordGame(game.found_words)
                 print("guess:" + game2.word_to_guess)
-                print("return render_template")
-
-                reset_game1(game)
-                #game = reset_game1(game)    
                 print(game.all_valid_words)           
                 return render_template("password.html", keybord = keybord, word_to_guess =  game2.word_to_guess)
         else:
@@ -143,28 +143,9 @@ def submit_word():
 
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
 
-def end_game():
-    if not game.quit:  
-        game.quit_flag = True 
-
 def reset_guess():       
     game.word_label = ""
     game.current_word = []
-
-def reset_game1(game):       
-    #global game
-    game.word_label = ""
-    game.current_word = []
-    game.found_words = set()
-    game = WordamentGame()
-    return game
-
-
-def reset_game2(game2):   
-    game2.wrong_guesses = 0
-    game2.guessed_letters = set()  
-    game2.word_display = ["_" if letter.isalpha() else letter for letter in game2.word_to_guess]
-    game2 = PasswordGame(['init'])  
 
 def get_20_words():
     return list(game.all_valid_words)[:20]
@@ -172,18 +153,14 @@ def get_20_words():
 
 @app.route("/restart", methods=['POST'])    
 def restart_game():
-    #game = WordamentGame()
     print("Restart Game")
-    #reset_game1(game)
-    #reset_game2(game2)
-
+    start_game()
     print(game.all_valid_words)
     print(game.word_label)
     print(game.grid)
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
 
-def quit_game():
-    game.quit = True
+
 
 @app.route("/key", methods=["POST"])
 def letter_click():    
@@ -212,17 +189,21 @@ def letter_click():
         flash(f"Wrong guesses: {game2.wrong_guesses}/{game2.max_wrong_guesses}", "hangman_label")
 
         if game2.wrong_guesses >= game2.max_wrong_guesses:
-            reset_game2(game2)
             return render_template("lose.html", word = word_to_guess)
         elif "_" not in game2.word_display:
-            reset_game2(game2)
             return render_template("win.html", word = word_to_guess)
     
     return render_template("password.html", keybord = keybord, word_to_guess = word_to_guess)
 
+def start_game():
+    global game, game2
+    game = WordamentGame()
+    game2 = PasswordGame(['init'])
+
 @app.route('/')
 def hello(name=None):
     app.secret_key = 'keep it secret'
+    start_game()
     print(game.all_valid_words)
     print(game.grid)
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
