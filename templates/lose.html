@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="container">
+        <h1></h1>
         <h1>You lost!</h1>
-        <p>You couldn't guess the word: {{ word }}</p>
+        <h3>You couldn't guess the word: {{ word }}</h3>
 
         <form action="/restart" method="post">
             <button type="submit" name="key_id" value = "restart" class="subfont">restart</button>

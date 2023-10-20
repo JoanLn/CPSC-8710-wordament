@@ -2,7 +2,12 @@
 body {
     font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #1ba9fc;
+    /*background-color: #030303;*/
+    background-image: url('/static/image/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
     color: #ffffff;
 }
 
@@ -10,9 +15,9 @@ body {
     max-width: 1000px;
     margin: 50px auto;
     padding: 25px;
-    background-color: rgba(42, 2, 80, 0.5);
+    background-color: #f06c00c7;
     border-radius: 15px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 25px rgba(90, 21, 0, 0.5);
 }
 
 .wrapper {
@@ -50,7 +55,7 @@ button {
     height: 100%;
     padding: 12.5px; 
     margin: 12.5px 0;
-    background-color: #989affcb;
+    background-color: #602749;
     border: #190074;
     font-size: 1.25em;
     color:rgb(255, 255, 255);
@@ -59,4 +64,10 @@ button {
 
 button:hover {
     background-color: #f8bc22;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: #c174ff;
+  color: rgb(255, 255, 255);
 }

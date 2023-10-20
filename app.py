@@ -1,14 +1,20 @@
-import tkinter as tk
+#import tkinter as tk
 import random
 from itertools import product
+
+import imp
+import sys
+sys.modules["sqlite"] = imp.new_module("sqlite")
+sys.modules["sqlite3.dbapi2"] = imp.new_module("sqlite.dbapi2")
 import nltk
+nltk.download('words')
 from nltk.corpus import words
 
 from flask import Flask, render_template, redirect, url_for, flash, request
 
 app = Flask(__name__)
 
-keybord = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", ""]
+keybord = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 #
 # part1 - wordament 
 #
@@ -107,14 +113,16 @@ class PasswordGame:
 
 @app.route("/enter", methods=['POST'])
 def button_click():
+    global game
     word_id = request.form["word_id"]
-    game.current_word.append(word_id)
+    #game.current_word.append(word_id)
     game.word_label += word_id
     flash(game.word_label, "word")
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
 
 @app.route("/guess", methods=["POST"])
 def submit_word():
+    global game, game2
     word = game.word_label
     print(f"word: {word}")
     if word in game.all_valid_words:
@@ -128,8 +136,8 @@ def submit_word():
                 game.message_label = "Congratulations! You won!"
                 flash("Congratulations! You won!", "message")
                 game2 = PasswordGame(game.found_words)
-                print("guess:" + game2.word_to_guess)
-                print(game.all_valid_words)           
+                #print("guess:" + game2.word_to_guess)
+                #print(game.all_valid_words)           
                 return render_template("password.html", keybord = keybord, word_to_guess =  game2.word_to_guess)
         else:
             game.message_label = f"You've already found the word {word}."
@@ -143,7 +151,8 @@ def submit_word():
 
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
 
-def reset_guess():       
+def reset_guess():
+    global game      
     game.word_label = ""
     game.current_word = []
 
@@ -153,22 +162,22 @@ def get_20_words():
 
 @app.route("/restart", methods=['POST'])    
 def restart_game():
-    print("Restart Game")
+    global game
+    #print("Restart Game")
     start_game()
-    print(game.all_valid_words)
-    print(game.word_label)
-    print(game.grid)
+    #print(game.all_valid_words)
+    #print(game.word_label)
+    #print(game.grid)
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
 
-
-
 @app.route("/key", methods=["POST"])
-def letter_click():    
+def letter_click():   
+    global game2 
     letter = request.form["key_id"]
     print(f"guess: {letter}")
     word_to_guess = request.form["guess_word"]
     print(f"Word to guess: {word_to_guess}")
-    
+
     if letter not in game2.guessed_letters:
         print("Letter never guess")
         game2.guessed_letters.add(letter)
@@ -192,18 +201,23 @@ def letter_click():
             return render_template("lose.html", word = word_to_guess)
         elif "_" not in game2.word_display:
             return render_template("win.html", word = word_to_guess)
+    else:
+        flash(f" ".join(game2.word_display) , "word_label")
+        flash(f"Wrong guesses: {game2.wrong_guesses}/{game2.max_wrong_guesses}", "hangman_label")
     
     return render_template("password.html", keybord = keybord, word_to_guess = word_to_guess)
 
 def start_game():
     global game, game2
+    print("Create new game")
     game = WordamentGame()
     game2 = PasswordGame(['init'])
 
 @app.route('/')
 def hello(name=None):
+    global game, game2
     app.secret_key = 'keep it secret'
     start_game()
-    print(game.all_valid_words)
-    print(game.grid)
+    #print(game.all_valid_words)
+    #print(game.grid)
     return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
