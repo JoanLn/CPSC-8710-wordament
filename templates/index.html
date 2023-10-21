@@ -9,27 +9,32 @@
 </head>
 
 <body>
+
     <div class="container">
         <h1>W<img src="/static/image/pumpkin.png" alt="o" width="50" height="50">rdament Game</h1>
         <h2 class="subfont">Find 4-letter words in the grid</h2>
 
-        <h2 class="subfont">{{ remaining_words }}</h2>
+        <h3 class="subfont">{{ remaining_words }}</h3>
+        <h3 class="subfont">{{ guessing_words }}</h3>
+
+        <button onclick="Rules()">Rules</button>
 
         <div class="wrapper">
-            
             {% for word in grid %}
                 {% for w in word %}
-                        <form action="/enter" method="post">
-                            <button type="submit" name="word_id" value = "{{w}}" class="subfont">{{w}}</button>
-                        </form>
+                        <!--<form action="/enter" method="post">
+                            <button type="submit" name="word_id" onclick = "this.disable = true;" value = "{{w}}" class="subfont">{{w}}</button>
+                        </form>-->
+                        <button name="word_id" onclick="this.disabled = true; chooseLetter(this.value); " class="subfont" value = "{{w}}">{{w}}</button>
                 {% endfor %}
             {% endfor %}
             
         </div>
 
-        <h1> </h1>
-
-        {% with messages = get_flashed_messages(category_filter=["word"]) %}
+        <form action="/guess" method="post">
+            <h2><p id="guess_word" name="guess_word" value = ""></p></h2>
+            <input type="hidden" id="guess_word_hidden" name="guess_word_hidden" value = "" />
+        <!--{% with messages = get_flashed_messages(category_filter=["word"]) %}
             {% if messages %}
                 <ul class="flash">
                     {% for message in messages %}
@@ -37,7 +42,7 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-        {% endwith %}
+        {% endwith %}-->
 
         {% with messages = get_flashed_messages(category_filter=["message"]) %}
             {% if messages %}
@@ -49,12 +54,30 @@
             {% endif %}
         {% endwith %}
 
-        <h1> </h1>
+        <h2> </h2>
 
-        <form action="/guess" method="post">
+        <!--<form action="/guess" method="post">-->
             <button type="submit" class="subfont">Guess</button>
         </form>
     </div>
+
+    <script>
+        function chooseLetter(letter){
+            word = document.getElementById("guess_word").innerHTML 
+            let text1 = word.concat(letter);
+    
+            document.getElementById("guess_word").innerHTML = text1;
+            document.getElementById("guess_word_hidden").value = text1;
+
+            this.disable = true;
+        }
+
+        function Rules() {
+            alert('     To create a word in Wordament, connect adjacent letters on the game board to form a word.\n \
+    Once you have formed a word, tap "Guess" button to submit it. The game will tell you it is valid or invalid.\n \
+    Try to find 20 words to get into next level.');
+        }
+    </script>
 </body>
 
 </html>

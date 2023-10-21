@@ -1,4 +1,9 @@
 
+html{
+    height: 100%;
+    margin: 0;
+  }
+
 body {
     font-family: 'Arial', sans-serif;
     text-align: center;
@@ -7,6 +12,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    height: 100%;
 
     color: #ffffff;
 }
@@ -41,10 +47,17 @@ h1 {
     color: #ffffff;
 }
 
-h2, h3 {
+h2 {
     font-family: Courier, monospace;
     text-align: center;
     font-size: 1.9em;
+    color: #ffffff;
+}
+
+h3 {
+    font-family: Courier, monospace;
+    text-align: center;
+    font-size: 1.2em;
     color: #ffffff;
 }
 

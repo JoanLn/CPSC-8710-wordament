@@ -28,16 +28,23 @@ class WordamentGame:
         self.all_valid_words = self.get_all_valid_words()
                     
         self.word_label = ""
+        self.guessing_words = 20
         
         self.message_label = ""
         
         self.remaining_label = f"Words Remaining: {len(self.all_valid_words)}" 
+        self.guessing_words_label = f"Words left to guess: {self.guessing_words}"
         self.quit = False
 
     def generate_grid(self):
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         while True:
+            #grid = [[[j, i, random.choice(letters)] for i in range(4)] for j in range(4)]
             grid = [[random.choice(letters) for _ in range(4)] for _ in range(4)]
+            #for i in range(4):
+            #    for j in range(4):
+            #        grid[i][j] = [i, j, grid[i][j]]
+            #print(grid)
             valid_words = self.get_all_valid_words(grid)
             if len(valid_words) >= 50:  # Checking for grids with at least 50 valid words
                 return grid
@@ -89,7 +96,7 @@ class PasswordGame:
         self.word_to_guess = random.choice(list(self.words))
         self.guessed_letters = set()
         self.wrong_guesses = 0
-        self.max_wrong_guesses = 3 
+        self.max_wrong_guesses = 5 
 
         self.word_display = ["_" if letter.isalpha() else letter for letter in self.word_to_guess]
         self.word_label = " ".join(self.word_display)
@@ -118,21 +125,27 @@ def button_click():
     #game.current_word.append(word_id)
     game.word_label += word_id
     flash(game.word_label, "word")
-    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
+    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid, guessing_words = game.guessing_words_label)
 
 @app.route("/guess", methods=["POST"])
 def submit_word():
     global game, game2
-    word = game.word_label
+    #word = game.word_label
+    print(f"submit_word")
+    #word = request.form["guess_word"]
+    word = request.form.get("guess_word_hidden")
     print(f"word: {word}")
     if word in game.all_valid_words:
         if word not in game.found_words:
             game.found_words.add(word)
             remaining_words = len(game.all_valid_words) - len(game.found_words)
+            word_left_to_guess = game.guessing_words - len(game.found_words)
             game.remaining_label= f"Words Remaining: {remaining_words}"
+            game.guessing_words_label = f"Words left to guess: {word_left_to_guess}"
             game.message_label = f"{word} is a valid word!"
-            flash(f"{word} is a valid word!", "message")
-            if len(game.found_words) == 3:
+            flash(f"{word} is a valid word! ", "message")
+
+            if len(game.found_words) == game.guessing_words:
                 game.message_label = "Congratulations! You won!"
                 flash("Congratulations! You won!", "message")
                 game2 = PasswordGame(game.found_words)
@@ -149,7 +162,7 @@ def submit_word():
         
     reset_guess()
 
-    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
+    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid, guessing_words = game.guessing_words_label )
 
 def reset_guess():
     global game      
@@ -168,7 +181,7 @@ def restart_game():
     #print(game.all_valid_words)
     #print(game.word_label)
     #print(game.grid)
-    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
+    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid, guessing_words = game.guessing_words_label)
 
 @app.route("/key", methods=["POST"])
 def letter_click():   
@@ -220,4 +233,4 @@ def hello(name=None):
     start_game()
     #print(game.all_valid_words)
     #print(game.grid)
-    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid)
+    return render_template("index.html", remaining_words = game.remaining_label, grid = game.grid, guessing_words = game.guessing_words_label)
