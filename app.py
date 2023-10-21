@@ -161,7 +161,7 @@ def reset_guess():
     global game      
     game.word_label = ""
     game.current_word = []
-     game.chosen_letters.clear() #Sush
+    game.chosen_letters.clear() #Sush
 
 def get_20_words():
     return list(game.all_valid_words)[:20]
