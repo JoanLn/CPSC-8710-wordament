@@ -26,6 +26,7 @@ class WordamentGame:
         self.current_word = []
         self.found_words = set()
         self.all_valid_words = self.get_all_valid_words()
+        self.chosen_letters = set() #Sush
                     
         self.word_label = ""
         
@@ -115,6 +116,11 @@ class PasswordGame:
 def button_click():
     global game
     word_id = request.form["word_id"]
+
+    if word_id in game.chosen_letters: #Sush
+        flash(f"{word_id} has already been selected.", "error")
+        return render_template("index.html", remaining_words=game.remaining_label, grid=game.grid)
+    game.chosen_letters.add(word_id) #Sush
     #game.current_word.append(word_id)
     game.word_label += word_id
     flash(game.word_label, "word")
@@ -155,6 +161,7 @@ def reset_guess():
     global game      
     game.word_label = ""
     game.current_word = []
+     game.chosen_letters.clear() #Sush
 
 def get_20_words():
     return list(game.all_valid_words)[:20]
