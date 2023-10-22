@@ -1,4 +1,9 @@
 
+
+![logo-png](https://github.com/JoanLn/CPSC-8710-wordament/assets/65409705/752c1ee5-ec38-477a-b090-f38b76887c58)
+
+
+
 # Lexilock
 
 Welcome to LexiLock, the ultimate word puzzle game designed to challenge and expand your vocabulary. First up, In Wordament, your goal is to find as many words as possible by connecting letters. Whether you're a casual gamer or a word enthusiast, Wordament offers an engaging and educational experience. Next, Password Game which is an excellent exercise in logic and deduction, challenging players to analyze feedback and make educated guesses to decipher the hidden password.
