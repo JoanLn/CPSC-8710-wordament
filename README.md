@@ -55,4 +55,9 @@ Alternate way to enjoy the game : https://wordament.fly.dev/
 
 
 ## Third-Party Assets and Code
+Pumpkin: Halloween Jack O Lantern png download - 512*512 - Free Transparent Pumpkin png Download. - CleanPNG / KissPNG
+Background: Free AI Image | Halloween background with scary pumpkins candles and bats in a dark forest at night (freepik.com)
 ## Reflection on the Design and Development Process
+The first challenge is to find a way to build a web application with python code. Since we don’t have any related experience before, it’s hard to begin. After reading some documentation, we decided to use Flask, which is a micro web framework written in Python. After building the page with HTML and CSS, the python application can run with the web page. There’s the second challenge, how to make a dynamic web page without refreshing the page. Since we need to prevent the player from choosing the same letter in a guessing turn, we decide to disable the letter button in the word grid after the letter being chosen. However, because we call the function with a submit type button and the register route, the page will refresh every time the player clicks any button on the webpage. To solve the problem, we add a short javascript in the HTML file to listen to the button and run the function without reloading the page. The last challenge is to deploy the web application. We had tried the AWS Elastic Beanstalk service, Netlify and Fly.io, and none of them worked at first. We decided to use the fly.io at the end since it's the most common I heard. After reading the documents and the discussion on the forum of fly.io, trying different settings worked at the end. 
+There’s still a function that we are not successfully implementing, which is to force the player to only connect the adjustment letter when guessing the word.
+
