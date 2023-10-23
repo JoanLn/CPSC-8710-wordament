@@ -76,6 +76,8 @@ Subsequently, we tackled the issue of making the webpage dynamic without frequen
 Lastly, we encountered challenges in deploying the web application. After exploring services like AWS Elastic Beanstalk, Netlify, and Fly.io, we chose Fly.io and, with the help of documentation and forum discussions, successfully launched our application.
 
 **Opening our horizons through exploration brings with it valuable lessons learned.**   
+<div style="text-align: justify;">
 
 We could have implemented a crucial function within our web project, which involves enforcing a rule where players can only connect adjustment letters when attempting to guess a word in the context of our Wordament game and password generator. This feature is pivotal to the user experience, ensuring that players can only use certain letters in specific circumstances, adding an extra layer of strategy and difficulty to the game.
-  One the whole, it was quite a journey where numerous lessons learned like **refinement of backlog**, **Clear User Stories** like ensuring what exactly has to be built and Efficiently **managing dependencies** between backlog items is essential for ensuring a seamless and efficient development process."
+  One the whole, it was quite a journey where numerous lessons learned like **refinement of backlog**, **Clear User Stories** like ensuring what exactly has to be built and Efficiently **managing dependencies** between backlog items is essential for ensuring a seamless and efficient development process.
+</div>
