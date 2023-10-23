@@ -63,8 +63,8 @@ Background: Free AI Image | Halloween background with scary pumpkins candles and
 
 Over six weeks, it was quite journey for our team in order to achieve this project successfully. So we had three week two-week sprints. Initially it was more about planning like how to move forward, which game to get started with and also what frameworks have to be done. The next sprint ws based on, User interface of the game and also on how to integrate the two different modes of games. The final sprint emphazied more on testing and finalizing our game. 
 
-**Envision Triumph**
-AS they say team work makes the dream work. During the first sprint we have envisioned how the product or the game how it should be. We are grateful for the outcome how it paned out, So the success of our project was primarly because of the **Team Communication and Versatility**. So coming from different strengths each individual had their own strength and the encouragement of open and transparent communication, along with the implementation of daily stand-up meetings, nurtured an environment in which every team member felt appreciated and listened to. The synergy within the team proved crucial in overcoming hurdles and consistently achieving on-time deliveries.
+**Envision Triumph** <br>
+As they say team work makes the dream work. During the first sprint we have envisioned how the product or the game how it should be. We are grateful for the outcome how it paned out, So the success of our project was primarly because of the **Team Communication and Versatility**. So coming from different strengths each individual had their own strength and the encouragement of open and transparent communication, along with the implementation of daily stand-up meetings, nurtured an environment in which every team member felt appreciated and listened to. The synergy within the team proved crucial in overcoming hurdles and consistently achieving on-time deliveries.
 
 **Obstacles Encountered**
 
