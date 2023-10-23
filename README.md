@@ -55,8 +55,8 @@ Alternate way to enjoy the game : https://wordament.fly.dev/
 
 
 ## Third-Party Assets and Code
-Pumpkin: Halloween Jack O Lantern png download - 512*512 - Free Transparent Pumpkin png Download. - CleanPNG / KissPNG 
-Background: [Free AI Image | Halloween background with scary pumpkins candles and bats in a dark forest at night] (freepik.com)
+Pumpkin: [Halloween Jack O Lantern png download - 512*512 - Free Transparent Pumpkin png Download](https://www.cleanpng.com/png-halloween-png-file-44569/)
+Background: [Free AI Image | Halloween background with scary pumpkins candles and bats in a dark forest at night](freepik.com)
 ## Reflection on the Design and Development Process
 
 **Sprint Overview** 
