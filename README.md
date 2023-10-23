@@ -23,11 +23,11 @@ This endeavor has been embraced by a team of passionate developers, bound togeth
 
 ## Setup and Installation ⚙
 
-Step 1 
+**Step 1** 
 Clone the repository
 https://github.com/JoanLn/CPSC-8710-wordament.git
 
-Step 2
+**Step 2**
 To initiate your journey into the world of word puzzles, ensure the installation of the mentioned dependencies.
 
 - Python 3
@@ -35,7 +35,7 @@ To initiate your journey into the world of word puzzles, ensure the installation
 - NLTK
 - HTML/CSS
 
-Step 3: 
+**Step 3:** 
 
  Run the file using "flask run"
 
@@ -46,18 +46,34 @@ Open web browser then run http://127.0.0.1:5000 to enjoy the seamless experience
 Alternate way to enjoy the game : https://wordament.fly.dev/
 ## Technology Used 💾
 
-- Python -> 
-- Flask -> Flask serves as the web framework for managing routing and handling requests.
-- HTML/CSS -> HTML and CSS have been employed to craft an user-friendly interface on the frontend.
+- **Python** -> 
+- **Flask** -> Flask serves as the web framework for managing routing and handling requests.
+- **HTML/CSS** -> HTML and CSS have been employed to craft an user-friendly interface on the frontend.
 
 
 
 
 
 ## Third-Party Assets and Code
-Pumpkin: Halloween Jack O Lantern png download - 512*512 - Free Transparent Pumpkin png Download. - CleanPNG / KissPNG
+Pumpkin: Halloween Jack O Lantern png download - 512*512 - Free Transparent Pumpkin png Download. - CleanPNG / KissPNG 
 Background: Free AI Image | Halloween background with scary pumpkins candles and bats in a dark forest at night (freepik.com)
 ## Reflection on the Design and Development Process
-The first challenge is to find a way to build a web application with python code. Since we don’t have any related experience before, it’s hard to begin. After reading some documentation, we decided to use Flask, which is a micro web framework written in Python. After building the page with HTML and CSS, the python application can run with the web page. There’s the second challenge, how to make a dynamic web page without refreshing the page. Since we need to prevent the player from choosing the same letter in a guessing turn, we decide to disable the letter button in the word grid after the letter being chosen. However, because we call the function with a submit type button and the register route, the page will refresh every time the player clicks any button on the webpage. To solve the problem, we add a short javascript in the HTML file to listen to the button and run the function without reloading the page. The last challenge is to deploy the web application. We had tried the AWS Elastic Beanstalk service, Netlify and Fly.io, and none of them worked at first. We decided to use the fly.io at the end since it's the most common I heard. After reading the documents and the discussion on the forum of fly.io, trying different settings worked at the end. 
-There’s still a function that we are not successfully implementing, which is to force the player to only connect the adjustment letter when guessing the word.
 
+**Sprint Overview** 
+
+Over six weeks, it was quite journey for our team in order to achieve this project successfully. So we had three week two-week sprints. Initially it was more about planning like how to move forward, which game to get started with and also what frameworks have to be done. The next sprint ws based on, User interface of the game and also on how to integrate the two different modes of games. The final sprint emphazied more on testing and finalizing our game. 
+
+**Envision Triumph**
+AS they say team work makes the dream work. During the first sprint we have envisioned how the product or the game how it should be. We are grateful for the outcome how it paned out, So the success of our project was primarly because of the **Team Communication and Versatility**. So coming from different strengths each individual had their own strength and the encouragement of open and transparent communication, along with the implementation of daily stand-up meetings, nurtured an environment in which every team member felt appreciated and listened to. The synergy within the team proved crucial in overcoming hurdles and consistently achieving on-time deliveries.
+
+**Obstacles Encountered**
+
+We initially faced the challenge of creating a web application using Python, despite having no prior experience in this domain. After researching, we opted for Flask, a Python micro web framework, and combined it with HTML and CSS for the webpage.
+
+Subsequently, we tackled the issue of making the webpage dynamic without frequent refreshes. To prevent players from selecting the same letter during a guessing turn, we disabled letter buttons in the word grid. However, this caused page refreshes when using a submit-type button and the register route. To address this, we added a concise JavaScript script in the HTML file, allowing for function execution without page reloading. Also, Consistently maintaining the backlog and keeping it current and well-prioritized is vital. We came to appreciate the importance of this, especially in the latter stages of the project as the due date approched and also when the project's scope started to grow.
+
+Lastly, we encountered challenges in deploying the web application. After exploring services like AWS Elastic Beanstalk, Netlify, and Fly.io, we chose Fly.io and, with the help of documentation and forum discussions, successfully launched our application.
+
+**Opening our horizons through exploration brings with it valuable lessons learned.**
+We could have implemented a crucial function within our web project, which involves enforcing a rule where players can only connect adjustment letters when attempting to guess a word in the context of our Wordament game and password generator. This feature is pivotal to the user experience, ensuring that players can only use certain letters in specific circumstances, adding an extra layer of strategy and difficulty to the game.
+  One the whole, it was quite a journey where numerous lessons learned like **refinement of backlog**, **Clear User Stories** like ensuring what exactly has to be built and Efficiently **managing dependencies** between backlog items is essential for ensuring a seamless and efficient development process."
