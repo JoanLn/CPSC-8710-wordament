@@ -6,7 +6,7 @@
 
 # **Lexilock**
 
-Welcome to LexiLock, the ultimate word puzzle game designed to challenge and expand your vocabulary. First up, In Wordament, your goal is to find as many words as possible by connecting letters. Whether you're a casual gamer or a word enthusiast, Wordament offers an engaging and educational experience. Next, Password Game which is an excellent exercise in logic and deduction, challenging players to analyze feedback and make educated guesses to decipher the hidden password.
+Welcome to LexiLock, the ultimate word puzzle game designed to challenge and expand your vocabulary. First up, In Wordament, your goal is to ftwenty four letter words by connecting letters. Whether you're a casual gamer or a word enthusiast, Wordament offers an engaging and educational experience. Next, Password Game which is an excellent exercise in logic and deduction, challenging players to analyze feedback and make educated guesses to decipher the hidden password.
 Delve into the letter grid, refine your linguistic abilities, and embark on your Wordament adventure today!
 
 ## Objective
