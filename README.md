@@ -46,7 +46,7 @@ Open web browser then run http://127.0.0.1:5000 to enjoy the seamless experience
 Alternate way to enjoy the game : https://wordament.fly.dev/
 ## Technology Used 💾
 
-- **Python** -> 
+- **Python** -> Python is a popular choice in the gaming field, making it accessible for creating word puzzle games due to its ease of use, rich libraries, and support for text processing.
 - **Flask** -> Flask serves as the web framework for managing routing and handling requests.
 - **HTML/CSS** -> HTML and CSS have been employed to craft an user-friendly interface on the frontend.
 
